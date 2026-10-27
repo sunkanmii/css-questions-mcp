@@ -31,9 +31,16 @@ Raw notes for the article "I Turned My CSS Quiz Into an MCP App. Here's Every Pl
 - The card reads the host's theme with `useViewTheme()` and sets its own colours for light and dark, instead of assuming the chat's background.
 - A container query switches answers to two columns only when the host gives the card enough width.
 
+## Deploying and running it in Claude
+
+- Pushed the repo to GitHub and connected it from the Manufact Cloud onboarding (Connect GitHub, access limited to this one repo).
+- The deploy screen detected everything from package.json: build `npm run build`, start `npm start`, port 3000. Region left on Auto, no environment variables.
+- Live at `https://dark-forge-j111f.run.mcp-use.com/mcp`. The first request after a quiet spell took about 1.7 s, probably a cold start.
+- `mcp-use screenshot --mcp <live url>` rendered both cards from the deployed server in light and dark themes.
+- Added the URL as a custom connector in Claude. Asking for today's CSS challenge rendered the card in the chat, and answering it worked end to end.
+
 ## Still to do
 
-- [ ] `npx mcp-use login`, then `npm run deploy` (needs Sunkanmi's Manufact account)
-- [ ] Add the deployed URL as a connector in ChatGPT or Claude and record it working
-- [ ] Note the time from `git push` to live URL
+- [ ] Time a fresh `git push` to live URL for the article
+- [ ] Measure cold start vs warm response a few times for the "Cold Starts, Measured" idea
 - [ ] Check question 275's distractor "fonto-synthesis": typo or intentional?
