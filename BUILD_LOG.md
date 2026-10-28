@@ -56,4 +56,4 @@ A cold request costs about 0.8 s more than a warm one. Most of the warm time is 
 
 **Question 275.** "fonto-synthesis" was a typo, a near-duplicate of the `font-synthesis` answer right above it, carried over from the CSS-Questions export. Removed it here (the question now has four answers) and flagged it for the source bank. `check-answer` now also rejects an answer index the question doesn't have, instead of quietly marking it wrong.
 
-**`git push` to live.** Timed in the next commit.
+**`git push` to live.** Pushed the question 275 fix to `main`, then called `check-answer` on the live URL every few seconds until it returned the new behaviour. The new version was answering **149 s** after the push (give or take about 10 s), with no action needed in the dashboard.
