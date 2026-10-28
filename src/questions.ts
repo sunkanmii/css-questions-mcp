@@ -119,8 +119,7 @@ export const questions: Question[] = [
       "`content-visibility: auto`",
       "`display: contents`",
       "`float: inline-start`",
-      "`font-synthesis`",
-      "`fonto-synthesis`"
+      "`font-synthesis`"
     ],
     "correctIndex": 0,
     "explanation": "It provides a placeholder size while content-visibility skips rendering."

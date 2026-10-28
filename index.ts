@@ -160,6 +160,11 @@ export const checkAnswer = server.tool(
   async ({ questionId, answerIndex }) => {
     const q = questions.find((item) => item.id === questionId);
     if (!q) throw new Error(`No question with id ${questionId}.`);
+    if (answerIndex >= q.answers.length) {
+      throw new Error(
+        `Question ${questionId} has ${q.answers.length} answers; pick 0 to ${q.answers.length - 1}.`
+      );
+    }
     const result = {
       correct: answerIndex === q.correctIndex,
       correctIndex: q.correctIndex,

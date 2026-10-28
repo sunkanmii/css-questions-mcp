@@ -39,8 +39,21 @@ Raw notes for the article "I Turned My CSS Quiz Into an MCP App. Here's Every Pl
 - `mcp-use screenshot --mcp <live url>` rendered both cards from the deployed server in light and dark themes.
 - Added the URL as a custom connector in Claude. Asking for today's CSS challenge rendered the card in the chat, and answering it worked end to end.
 
-## Still to do
+## Measured
 
-- [ ] Time a fresh `git push` to live URL for the article
-- [ ] Measure cold start vs warm response a few times for the "Cold Starts, Measured" idea
-- [ ] Check question 275's distractor "fonto-synthesis": typo or intentional?
+**Cold start vs warm.** Six `initialize` requests to the live URL from Lagos, one after another, the first after the app had been idle:
+
+| Request | Time |
+| --- | --- |
+| 1 (after idle) | 1.52 s |
+| 2 | 0.90 s |
+| 3 | 0.72 s |
+| 4 | 0.74 s |
+| 5 | 0.71 s |
+| 6 | 0.68 s |
+
+A cold request costs about 0.8 s more than a warm one. Most of the warm time is the round trip from Lagos.
+
+**Question 275.** "fonto-synthesis" was a typo, a near-duplicate of the `font-synthesis` answer right above it, carried over from the CSS-Questions export. Removed it here (the question now has four answers) and flagged it for the source bank. `check-answer` now also rejects an answer index the question doesn't have, instead of quietly marking it wrong.
+
+**`git push` to live.** Timed in the next commit.

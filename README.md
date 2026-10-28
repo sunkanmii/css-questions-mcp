@@ -4,6 +4,16 @@ Play the [CSS-Questions](https://css-questions.com) daily challenge inside ChatG
 
 Ask your assistant for "today's CSS challenge" or "a grid question". A card appears, you pick an answer, and the server checks it and explains why.
 
+## Try it
+
+It's live on Manufact Cloud:
+
+```
+https://dark-forge-j111f.run.mcp-use.com/mcp
+```
+
+Add that URL as a custom connector in Claude or ChatGPT, then ask for today's CSS challenge.
+
 ## Tools
 
 | Tool | What it does | View |
